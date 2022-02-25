@@ -1,0 +1,74 @@
+<!---------------
+--------------
+ Template Crud Users    
+--------------    
+--------------->
+
+
+<div class="container-fluid">
+    <header>
+        <h1 class="text-center py-4">Mantendor de Usuarios</h1>
+    </header>
+
+    <button *ngIf="viewState === viewUserCrud.LIST_USER" class="btn btn-success" (click)="goFormUser();">Crear Usuario</button>
+
+    <div class="create-form"  *ngIf="viewState === viewUserCrud.CREATE_USER">
+        <button (click)="goBack();" class="btn btn-success">Regresar</button>
+        <div class="row">
+            <br>
+            <div class="col-md-5 " style="margin: auto;padding-top:20px;">
+                <form [formGroup]="form"  (ngSubmit)="createUserBody();" >
+                    <h4>Datos Generales:</h4>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre Usuario(*)">
+                        
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Correo Electronico</label>
+                      <input formControlName="email" type="email" class="form-control" placeholder="Correo electronico(*)">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Clave Usuario</label>
+                      <input formControlName="password" type="password" class="form-control"  placeholder="Clave Usuario(*)">
+                    </div>
+                    <div class="form-group">
+                       <h4>Datos telefonicos</h4>
+                       <label class="form-check-label">Numero Telefonico</label>
+                      <input formControlName="number" type="text" class="form-control" placeholder="Numero Telefonico(*)">
+                    </div>
+                    <div class="form-group">
+                       <label class="form-check-label">Codigo Ciudad</label>
+                       <input formControlName="citycode" type="text" class="form-control" placeholder="Codigo Ciudad(*)">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check-label">Codigo Pais</label>
+                        <input formControlName="contrycode" type="text" class="form-control" placeholder="Codigo Pais(*)">
+                    </div>
+                    <button [disabled]="form.status == 'INVALID'" type="submit" class="btn btn-primary">Crear Usuario</button>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="list-user" *ngIf="viewState === viewUserCrud.LIST_USER">
+        <ul  class="list-group list-group-flush" *ngFor="let item of users">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 card">
+                        <div class="card-body">
+                          <p class="text-1">* Nombre {{item.name}}</p> <p class="text-2">* Correo: {{item.email}}</p>
+                          <div class="text-3">Datos Telefonicos: <br>
+                             <p>Telefono: {{item.phone.number}}</p>
+                             <p>Codigo Ciudad: {{item.phone.citycode}}</p>
+                             <p>Codigo Pais: {{item.phone.contrycode}}</p>
+                           </div>
+                        <button style="margin-left: 3px;" class="btn btn-danger" (click)="deleteUserList(item.id);">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

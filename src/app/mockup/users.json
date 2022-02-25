@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Matías González",
+      "email": "matias.gonzalez-rph@gmail.com",
+      "password": "12345",
+      "phone": {
+        "number": "98067383",
+        "citycode": "1",
+        "contrycode": "57"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Billie Kwvioll",
+      "email": "billkb-rph@gmail.com",
+      "password": "1277345",
+      "phone": {
+        "number": "9805555",
+        "citycode": "2",
+        "contrycode": "58"
+      }
+    }
+  ]
+}
