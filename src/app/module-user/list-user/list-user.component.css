@@ -1,3 +1,4 @@
+/***********Style List User*************/
 
 
 header h1 {
@@ -11,5 +12,17 @@ header h1 {
 .text-2 {
     text-transform: capitalize;
     font-weight: bold;
+}
+
+.flex-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 6px;
+}
+
+.card {
+    margin:5px;
+    order: 6;
 }
 

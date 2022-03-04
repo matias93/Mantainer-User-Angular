@@ -5,15 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { ListUserComponent } from './module-user/list-user/list-user.component';
-import { AngularFireModule} from '@angular/fire/compat'
+import { NavigationComponent } from './module-user/navigation/navigation.component';
+import { SidebarFormComponent } from './module-user/sidebar-form/sidebar-form.component';
+import { AngularFireModule}  from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
  
 @NgModule({
   declarations: [
     AppComponent,
-    ListUserComponent
+    ListUserComponent,
+    NavigationComponent,
+    SidebarFormComponent
   ],
   imports: [
     BrowserModule,
