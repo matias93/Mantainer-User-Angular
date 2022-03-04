@@ -28,6 +28,7 @@
                     <input formControlName="email" type="email" class="form-control"  placeholder="Correo Electronico(*)">
                     <div class="error" *ngIf="submit && f.email.errors">
                         <small *ngIf="form.get('email')?.hasError('required')" class="form-text text-muted">Debe ingresar un correo</small>
+                        <small *ngIf="form.get('email')?.hasError('email')" class="form-text text-muted">Debe ingresar un correo valido!</small>
                     </div>
                 </div>
                 <div class="form-group">

@@ -23,7 +23,7 @@
                 <div class="col-md-10">
                     <div class="flex-card">
                         <div class="card" style="width: 18rem;margin:10px;" *ngFor="let item of users">
-                            <div class="card-body">
+                            <div class="card-body" (click)="goFormDetail(item);">
                               <h5 class="card-title">{{item.fullname}}</h5>
                               <h6 class="card-subtitle mb-2 text-muted">{{item.email}}</h6>
                               <p class="card-text"><span class="badge badge-primary">{{item.information.profession}}</span></p>
@@ -32,9 +32,13 @@
                     </div>
                 </div>
             </div>
-        </div><!----List User---->
-        <div class="user-detail" *ngIf="viewState === viewUserCrud.CREATE_USER">
+        </div>
+        <div class="user-create" *ngIf="viewState === viewUserCrud.CREATE_USER">
             <app-sidebar-form></app-sidebar-form>
+        </div>
+
+        <div class="user-detail" *ngIf="showForm ">
+            <app-sidebar-detail-user></app-sidebar-detail-user>
         </div>
     </div>
     

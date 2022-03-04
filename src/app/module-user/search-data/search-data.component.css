@@ -11,7 +11,8 @@
 
 .container-search form {
     margin: 0 auto;
-    background: #9965f4;
+    background: #f4f6f9;
     padding: 15px 10px 5px 10px;
     border-radius: 6px;
+    width: 50%;
 }

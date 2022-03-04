@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { Users} from 'src/app/model/user.model';
-import {FormControl, Validators, FormGroup } from '@angular/forms';
-import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-user',
@@ -16,7 +15,7 @@ export class ListUserComponent implements OnInit {
    */
   constructor(private _service:UserService) { }
 
-  form!: FormGroup;
+  public showDetail:boolean = false;
 
   public viewUserCrud = {
     LIST_USER    : 'LIST_USER',
@@ -25,24 +24,13 @@ export class ListUserComponent implements OnInit {
   }
 
   public viewState:any;
+  public showForm:boolean = false;
 
   public users:Users[] =[];
-  public result:any;
-  emailValid:any = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+ 
+  
 
   ngOnInit(): void {
-    this.form = new FormGroup(({
-      name : new FormControl('',Validators.required),
-      email: new FormControl('',[Validators.required,Validators.pattern(this.emailValid)]),
-      password: new FormControl('',Validators.required),
-      number: new FormControl('',Validators.required),
-      citycode: new FormControl('',Validators.required),
-      contrycode: new FormControl('',Validators.required),
-    }))
-
-    
-    
-   
     this._service.getAllCollectionUsers().subscribe(res => {
        this.users = res;
        console.log('desde firebae====>',res);
@@ -54,9 +42,17 @@ export class ListUserComponent implements OnInit {
     this.viewState = this.viewUserCrud.CREATE_USER;
   }
 
+  goFormDetail(item:any){
+    this.showForm = true
+    let data = item;
+    this._service.sendDataShared(data);
+  }
+
   goBack(){
     this.viewState = this.viewUserCrud.LIST_USER;
   }
+
+  
    
   
 }

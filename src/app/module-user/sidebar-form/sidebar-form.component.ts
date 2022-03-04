@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { ValidateFormService } from 'src/app/service/validate-form.service';
+import { CreateUser } from 'src/app/model/user.model';
+
 
 @Component({
   selector: 'app-sidebar-form',
@@ -36,8 +37,13 @@ export class SidebarFormComponent implements OnInit {
   
 
   createDataForm(){
-     this.submit = true;
-     console.log('enviar datos====0>',this.f)  
+     const _form = new CreateUser()
+     _form.id = Math.floor(Math.random() * 99);
+     _form.fullname = this.form.value.name;
+     _form.email = this.form.value.email;
+     _form.position = this.form.value.position;
+     _form.role = this.form.value.role;
+     console.log('======>',_form);
     
   
   }

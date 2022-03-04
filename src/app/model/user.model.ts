@@ -21,3 +21,18 @@ export interface Users {
     information:Information ;
     roles: Role[];
 }
+
+export class CreateUser {
+    id?:number;
+    fullname?:string;
+    email?:string;
+    position?:string;
+    role?:string;
+    constructor(id?:number,fullname?:string,email?:string,position?:string,role?:string){
+        this.id = id;
+        this.fullname = fullname;
+        this.email = email;
+        this.position = position;
+        this.role = role;
+    }
+}

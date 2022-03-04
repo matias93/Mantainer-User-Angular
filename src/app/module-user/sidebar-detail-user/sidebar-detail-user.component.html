@@ -1,1 +1,61 @@
-<p>sidebar-detail-user works!</p>
+<!-----------------
+    
+Template Detail User    
+----------------->
+
+<div class="detail-container" >
+	<div class="header-container">
+		<h4>Detalle Usuario</h4>		
+		<button  type="button" class="btn btn-tool" style="color: #ffffff;background:#BD0006;border-radius:5px;" data-card-widget="remove" on:click={close}>
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+	</div>
+	<br/>
+	<div class="form-container">
+		<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+			<form [formGroup]="form" (ngSubmit)="createDataForm();">
+                <div class="form-group">
+                    <label>Nombre Usuario:</label>
+                    <input formControlName="fullname" type="text" class="form-control"  placeholder="Nombre Usuario(*)">
+                    <div class="error" *ngIf="submit && f.name.errors">
+                      <small *ngIf="form.get('name')?.hasError('required')" class="form-text text-muted">Debe ingresar nombre de usuario</small>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <label>Correo Electronico:</label>
+                    <input formControlName="email" [value]="detail.email" type="email" class="form-control"  placeholder="Correo Electronico(*)">
+                    <div class="error" *ngIf="submit && f.email.errors">
+                        <small *ngIf="form.get('email')?.hasError('required')" class="form-text text-muted">Debe ingresar un correo</small>
+                        <small *ngIf="form.get('email')?.hasError('email')" class="form-text text-muted">Debe ingresar un correo valido!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Ingrese Contraseña:</label>
+                    <input formControlName="detail.password"  type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+                    <div class="error" *ngIf="submit && f.password.errors">
+                        <small *ngIf="form.get('password')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Ingrese un Cargo:</label>
+                    <input formControlName="position" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+                    <div class="error" *ngIf="submit && f.position.errors">
+                        <small *ngIf="form.get('position')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Ingrese un Rol:</label>
+                    <input formControlName="role" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+                    <div class="error" *ngIf="submit && f.role.errors">
+                        <small *ngIf="form.get('role')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+		</ul>
+	</div>
+</div>

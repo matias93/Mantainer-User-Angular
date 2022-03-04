@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { map} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Users } from '../model/user.model';
@@ -11,6 +12,12 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
   providedIn: 'root'
 })
 export class UserService {
+
+  public showForm:boolean = true;
+
+  private dataShared = new BehaviorSubject<any>(this.showForm);
+
+  shared = this.dataShared.asObservable();
 
 
  private usersDB!: AngularFireList<Users>;
@@ -24,7 +31,14 @@ export class UserService {
     ref.orderByChild('name')
      );
   }
-
+  
+  /**
+   * 
+   * @param data 
+   */
+  sendDataShared(data:any){
+    this.dataShared.next(data);
+  }
   
   getAllCollectionUsers():Observable<any> {
        return this.usersDB.snapshotChanges().pipe(
