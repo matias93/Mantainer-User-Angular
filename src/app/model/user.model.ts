@@ -25,3 +25,22 @@ export class Phone {
         this.contrycode = contrycode;
     }
 }
+
+export interface Chore {
+    id: number;
+    name: string;
+    clientValue: number;
+}
+
+export interface Role {
+    id: number;
+    name: string;
+}
+
+export interface Users {
+    id: number;
+    fullname: string;
+    email: string;
+    chore: Chore;
+    roles: Role[];
+}

@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  apiUsers: 'http://localhost:3000'
+  apiUsers: 'http://localhost:3000',
+  firebaseConfig : {
+    apiKey: "AIzaSyD6mcsQNTtLF-XEgONSaSQxeW7RHX1d4g4",
+    authDomain: "maitainer-user.firebaseapp.com",
+    databaseURL: "https://maitainer-user-default-rtdb.firebaseio.com",
+    projectId: "maitainer-user",
+    storageBucket: "maitainer-user.appspot.com",
+    messagingSenderId: "839374310189",
+    appId: "1:839374310189:web:c6e8106ab0416ad78161a4",
+    measurementId: "G-LSQV1EH1PL"
+  }
 };
 
 /*
