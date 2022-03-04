@@ -1,0 +1,17 @@
+/********************
+   
+   Style Search
+
+**************************/
+
+.container-search {
+    display: flex;
+    align-items: center;
+}
+
+.container-search form {
+    margin: 0 auto;
+    background: #9965f4;
+    padding: 15px 10px 5px 10px;
+    border-radius: 6px;
+}

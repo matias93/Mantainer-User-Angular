@@ -7,28 +7,37 @@
 <app-navigation></app-navigation>
 
 
-<div class="container-fluid">
+<div class="main-container">
     <header>
-        <h1 class="text-center py-4">Usuarios Banca</h1>
+        <h1 class="text-center py-4">Mantenedor de Usuarios</h1>
     </header>
-    
-    <button class="btn btn-success">Crear Usuario</button>
+     <app-search-data></app-search-data>
      <br>
-    <div class="list-user">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="flex-card">
-                    <div class="card" style="width: 18rem;" *ngFor="let item of users">
-                        <div class="card-body">
-                          <h5 class="card-title">{{item.fullname}}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">{{item.email}}</h6>
-                          <p class="card-text"><span class="badge badge-primary">{{item.information.profession}}</span></p>
+    <div class="container-btn">
+        <button class="btn btn-success" (click)="goFormUser();">Crear Usuario</button>
+    </div>
+    
+    <div class="content-container">
+        <div class="list-user">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="flex-card">
+                        <div class="card" style="width: 18rem;margin:10px;" *ngFor="let item of users">
+                            <div class="card-body">
+                              <h5 class="card-title">{{item.fullname}}</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">{{item.email}}</h6>
+                              <p class="card-text"><span class="badge badge-primary">{{item.information.profession}}</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div><!----List User---->
+        <div class="user-detail" *ngIf="viewState === viewUserCrud.CREATE_USER">
+            <app-sidebar-form></app-sidebar-form>
         </div>
     </div>
+    
 </div>
 
 

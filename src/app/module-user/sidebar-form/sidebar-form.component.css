@@ -1,0 +1,71 @@
+/**********************
+     Style Sidebar Form
+**************************/
+
+
+
+.detail-container {
+    box-sizing: border-box;
+    height: 100%;
+    width: 490px;
+    padding: 10px 20px;		
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow:0 0 4px rgba(0,0,0,.25);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+.header-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-container {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+h4 {
+    font-weight: bold;
+}
+
+.error {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    background: #dc3545;
+    border-radius: 5px;
+}
+
+.error small {
+    color: #ffffff!important;
+    font-size: 15px;
+   
+}
+
+@media only screen and (max-width: 320px){
+    .detail-container {
+       width: 320px;
+       padding: 20px;
+    }
+}
+
+@media only screen and (max-width: 414px){
+    .detail-container {
+       width: 370px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .detail-container {
+       width: 350px;
+    }
+}

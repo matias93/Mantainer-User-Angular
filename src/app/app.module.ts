@@ -11,6 +11,8 @@ import { AngularFireModule}  from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { SearchDataComponent } from './module-user/search-data/search-data.component';
+import { SidebarDetailUserComponent } from './module-user/sidebar-detail-user/sidebar-detail-user.component';
 
  
 @NgModule({
@@ -18,7 +20,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AppComponent,
     ListUserComponent,
     NavigationComponent,
-    SidebarFormComponent
+    SidebarFormComponent,
+    SearchDataComponent,
+    SidebarDetailUserComponent
   ],
   imports: [
     BrowserModule,
