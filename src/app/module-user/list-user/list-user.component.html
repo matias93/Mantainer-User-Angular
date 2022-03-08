@@ -26,7 +26,8 @@
                             <div class="card-body" (click)="goFormDetail(item);">
                               <h5 class="card-title">{{item.fullname}}</h5>
                               <h6 class="card-subtitle mb-2 text-muted">{{item.email}}</h6>
-                              <p class="card-text"><span class="badge badge-primary">{{item.information.profession}}</span></p>
+                              <p class="card-text"><span class="badge badge-primary">
+                                {{item.information.profession ? item.information.profession : 'Sin Cargo'}}</span></p>
                             </div>
                         </div>
                     </div>
@@ -34,11 +35,29 @@
             </div>
         </div>
         <div class="user-create" *ngIf="viewState === viewUserCrud.CREATE_USER">
-            <app-sidebar-form [viewUserCrud]="viewUserCrud"></app-sidebar-form>
+            <div class="detail-container" >
+                <div class="header-container">
+                    <h4>Crear Usuario</h4>		
+                    <button (click)="closeForm();"  type="button" class="btn btn-tool" style="color: #ffffff;background:#BD0006;border-radius:5px;" data-card-widget="remove">
+                        <i class="fa-solid fa-xmark" ></i>
+                    </button>
+                </div>
+                <br/>
+               <app-sidebar-form></app-sidebar-form>
+            </div>
         </div>
 
         <div class="user-detail" *ngIf="viewState === this.viewUserCrud.DETAIL_USER">
-            <app-sidebar-detail-user></app-sidebar-detail-user>
+            <div class="detail-container" >
+                <div class="header-container">
+                    <h4>Detalle Usuario</h4>		
+                    <button (click)="closeForm();"  type="button" class="btn btn-tool" style="color: #ffffff;background:#BD0006;border-radius:5px;" data-card-widget="remove">
+                        <i class="fa-solid fa-xmark" ></i>
+                    </button>
+                </div>
+                <br/>
+                <app-sidebar-detail-user></app-sidebar-detail-user>
+            </div>
         </div>
     </div>
     

@@ -13,11 +13,11 @@ export class SidebarFormComponent implements OnInit {
   
   form!: FormGroup;
 
-  @Input() viewUserCrud:any;
+  
   
   
   public submit:boolean = false;
-  public viewState:any;
+  
 
   positions = [
     {id: 1, profession: "Ejecutivo clientes"},
@@ -42,7 +42,7 @@ export class SidebarFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('yyyy',this.viewUserCrud)
+    
   }
 
   readingForm(){
@@ -58,10 +58,7 @@ export class SidebarFormComponent implements OnInit {
   get f() { return this.form.controls; }
 
 
-  deleteForm(){
-    this.viewState = this.viewUserCrud.LIST_USER;
-  }
-
+  
   
   sendUserToApi(form:any){
     if (form) {

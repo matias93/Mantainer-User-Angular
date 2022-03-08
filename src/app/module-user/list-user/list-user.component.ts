@@ -15,7 +15,7 @@ export class ListUserComponent implements OnInit {
    */
   constructor(private _service:UserService) { }
 
-  public showDetail:boolean = false;
+  public showForm:boolean = false;
 
   public viewUserCrud = {
     LIST_USER    : 'LIST_USER',
@@ -24,7 +24,7 @@ export class ListUserComponent implements OnInit {
   }
 
   public viewState:any;
-  public showForm:boolean = true;
+  
 
   public users:Users[] =[];
  
@@ -58,6 +58,14 @@ export class ListUserComponent implements OnInit {
   }
 
   
-   
+  closeForm(){
+    this.viewState = !this.viewUserCrud.CREATE_USER;
+    this.viewState = this.viewUserCrud.LIST_USER;
+  }
+
+  closeDetail(){
+    this.viewState = !this.viewUserCrud.DETAIL_USER;
+    this.viewState = this.viewUserCrud.LIST_USER;
+  }
   
 }

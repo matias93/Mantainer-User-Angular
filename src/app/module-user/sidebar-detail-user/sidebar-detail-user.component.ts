@@ -45,6 +45,8 @@ export class SidebarDetailUserComponent implements OnInit {
             fullname: this.detail.fullname,
             email: this.detail.email,
             password: this.detail.password,
+            information : this.detail.information,
+            roles: this.detail.roles
         })
       })
   }
@@ -64,7 +66,8 @@ export class SidebarDetailUserComponent implements OnInit {
   deleteUserApi(item:any){
     const userId = JSON.stringify(item.id);
     console.log(userId)
-    this._service.deleteUser(userId).then(() => console.log('usuario eleimidado"""'))
+    this._service.deleteUser(userId).then(() => console.log('usuario eleimidado"""'
+    ))
   }
    
 
@@ -85,7 +88,8 @@ export class SidebarDetailUserComponent implements OnInit {
      _form.password = this.form.value.password;
      _form.information = this.form.value.information;
      _form.roles = this.form.value.roles;
-     this.updateUserApi(id,_form)
+     console.log('editar====>',_form)
+     //this.updateUserApi(id,_form)
   }
 
 
