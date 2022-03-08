@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output} from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { Users} from 'src/app/model/user.model';
 import { Observable } from 'rxjs';
@@ -24,7 +24,7 @@ export class ListUserComponent implements OnInit {
   }
 
   public viewState:any;
-  public showForm:boolean = false;
+  public showForm:boolean = true;
 
   public users:Users[] =[];
  
@@ -41,10 +41,15 @@ export class ListUserComponent implements OnInit {
   goFormUser(){
     this.viewState = this.viewUserCrud.CREATE_USER;
   }
-
+  
+  /**
+   * 
+   * @param item 
+   */
   goFormDetail(item:any){
-    this.showForm = true
+   
     let data = item;
+    this.viewState = this.viewUserCrud.DETAIL_USER;
     this._service.sendDataShared(data);
   }
 

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchDataComponent implements OnInit {
 
+
+   public valueText!: string;
+
   constructor() { }
 
+   
+
   ngOnInit(): void {
+    console.log(this.valueText)
   }
+
+  
 
 }

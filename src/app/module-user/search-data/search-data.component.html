@@ -8,7 +8,13 @@
      <div class="container-search">
         <form>
             <div class="form-group">
-              <input type="text" placeholder="Busque la informacion.." class="form-control" id="exampleInputEmail1">
+              <input type="text" 
+              placeholder="Busque la informacion.." 
+              class="form-control" 
+              name="valueText"
+              [(ngModel)]="valueText" 
+              (ngModelChange)="valueText = $event"
+              />
             </div>
         </form>
      </div>

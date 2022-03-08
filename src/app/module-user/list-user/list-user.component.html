@@ -34,10 +34,10 @@
             </div>
         </div>
         <div class="user-create" *ngIf="viewState === viewUserCrud.CREATE_USER">
-            <app-sidebar-form></app-sidebar-form>
+            <app-sidebar-form [viewUserCrud]="viewUserCrud"></app-sidebar-form>
         </div>
 
-        <div class="user-detail" *ngIf="showForm ">
+        <div class="user-detail" *ngIf="viewState === this.viewUserCrud.DETAIL_USER">
             <app-sidebar-detail-user></app-sidebar-detail-user>
         </div>
     </div>

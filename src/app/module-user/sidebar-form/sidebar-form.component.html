@@ -7,8 +7,8 @@
 <div class="detail-container" >
 	<div class="header-container">
 		<h4>Crear Usuario</h4>		
-		<button  type="button" class="btn btn-tool" style="color: #ffffff;background:#BD0006;border-radius:5px;" data-card-widget="remove" on:click={close}>
-			<i class="fa-solid fa-xmark"></i>
+		<button  type="button" class="btn btn-tool" style="color: #ffffff;background:#BD0006;border-radius:5px;" data-card-widget="remove" (click)="deleteForm();">
+			<i class="fa-solid fa-xmark" ></i>
 		</button>
 	</div>
 	<br/>
@@ -21,7 +21,6 @@
                     <div class="error" *ngIf="submit && f.name.errors">
                       <small *ngIf="form.get('name')?.hasError('required')" class="form-text text-muted">Debe ingresar nombre de usuario</small>
                     </div>
-                    
                 </div>
                 <div class="form-group">
                     <label>Correo Electronico:</label>
@@ -40,21 +39,25 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ingrese un Cargo:</label>
-                    <input formControlName="position" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
-                    <div class="error" *ngIf="submit && f.position.errors">
-                        <small *ngIf="form.get('position')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    <select formControlName="information" class="form-control" id="exampleFormControlSelect2">
+                       <option [ngValue]="cargo" *ngFor="let cargo of positions">{{cargo.profession}}</option>   
+                    </select>
+                    <div class="error" *ngIf="submit && f.password.errors">
+                        <small *ngIf="form.get('position')?.hasError('required')" class="form-text text-muted">Debe ingresar un cargo</small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ingrese un Rol:</label>
-                    <input formControlName="role" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
-                    <div class="error" *ngIf="submit && f.role.errors">
-                        <small *ngIf="form.get('role')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    <select multiple formControlName="roles" class="form-control" id="exampleFormControlSelect2">
+                        <option [ngValue]="rol" *ngFor="let rol of roles">{{rol.name}}</option>   
+                    </select>
+                    <div class="error" *ngIf="submit && f.password.errors">
+                        <small *ngIf="form.get('role')?.hasError('required')" class="form-text text-muted">Debe ingresar un rol</small>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <button class="btn btn-primary">Crear</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
                 </div>
             </form>
 		</ul>

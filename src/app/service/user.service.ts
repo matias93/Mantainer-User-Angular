@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { map} from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { Users } from '../model/user.model';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
@@ -13,9 +11,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 })
 export class UserService {
 
-  public showForm:boolean = true;
-
-  private dataShared = new BehaviorSubject<any>(this.showForm);
+  
+  private dataShared = new BehaviorSubject<any>({});
 
   shared = this.dataShared.asObservable();
 
@@ -39,6 +36,30 @@ export class UserService {
   sendDataShared(data:any){
     this.dataShared.next(data);
   }
+  /**
+   * 
+   * @param user 
+   * @returns 
+   */
+  createUserApi(user:any) {
+    return this._db.list('users').push(user);
+  }
+  /**
+   * 
+   * @param id 
+   * @returns 
+   */
+  deleteUser(id:any){
+    return this._db.list('users').remove(id);
+  }
+
+  updateUser(id:string,user:any){
+    return this._db.list('users').update(id,user)
+  }
+
+  /*editUser(id:any){
+    return this._db.list('users').update(id)
+  }*/
   
   getAllCollectionUsers():Observable<any> {
        return this.usersDB.snapshotChanges().pipe(
@@ -50,6 +71,5 @@ export class UserService {
          })
        )
   }
-
- 
+  
 }

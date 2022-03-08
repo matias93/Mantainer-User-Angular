@@ -24,7 +24,7 @@ Template Detail User
                 </div>
                 <div class="form-group">
                     <label>Correo Electronico:</label>
-                    <input formControlName="email" [value]="detail.email" type="email" class="form-control"  placeholder="Correo Electronico(*)">
+                    <input formControlName="email"  type="email" class="form-control"  placeholder="Correo Electronico(*)">
                     <div class="error" *ngIf="submit && f.email.errors">
                         <small *ngIf="form.get('email')?.hasError('required')" class="form-text text-muted">Debe ingresar un correo</small>
                         <small *ngIf="form.get('email')?.hasError('email')" class="form-text text-muted">Debe ingresar un correo valido!</small>
@@ -32,28 +32,34 @@ Template Detail User
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ingrese Contraseña:</label>
-                    <input formControlName="detail.password"  type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+                    <input formControlName="password"  type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
                     <div class="error" *ngIf="submit && f.password.errors">
                         <small *ngIf="form.get('password')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ingrese un Cargo:</label>
-                    <input formControlName="position" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
-                    <div class="error" *ngIf="submit && f.position.errors">
-                        <small *ngIf="form.get('position')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    <select formControlName="information" class="form-control" id="exampleFormControlSelect2">
+                       <option [ngValue]="cargo" *ngFor="let cargo of positions">{{cargo.profession}}</option>   
+                    </select>
+                    <div class="error" *ngIf="submit && f.password.errors">
+                        <small *ngIf="form.get('position')?.hasError('required')" class="form-text text-muted">Debe ingresar un cargo</small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ingrese un Rol:</label>
-                    <input formControlName="role" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
-                    <div class="error" *ngIf="submit && f.role.errors">
-                        <small *ngIf="form.get('role')?.hasError('required')" class="form-text text-muted">Debe ingresar la contraseña</small>
+                    <select multiple formControlName="roles" class="form-control" id="exampleFormControlSelect2">
+                        <option [ngValue]="rol" *ngFor="let rol of roles">{{rol.name}}</option>   
+                    </select>
+                    <div class="error" *ngIf="submit && f.password.errors">
+                        <small *ngIf="form.get('role')?.hasError('required')" class="form-text text-muted">Debe ingresar un rol</small>
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <button class="btn btn-primary">Crear</button>
+                <div class="form-group separator-btn">
+                    <button class="btn btn-primary">Editar</button>
+                    <button type="button" (click)="deleteUserApi(detail);" class="btn btn-danger">Eliminar</button>
                 </div>
             </form>
 		</ul>

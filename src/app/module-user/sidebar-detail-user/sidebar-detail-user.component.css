@@ -33,6 +33,11 @@
     justify-content: flex-start;
     overflow-y: auto;
 }
+
+.separator-btn button{
+    margin: 4px;
+}
+
 h4 {
     font-weight: bold;
 }
